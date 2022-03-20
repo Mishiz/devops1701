@@ -14,8 +14,8 @@ provider "digitalocean" {
   token = var.do_token
 }
 
-data "digitalocean_ssh_key" "terraform" {
-  name = "terraform"
+data "digitalocean_ssh_key" "jenkins" {
+  name = "jenkins"
 }
 
 resource "digitalocean_droplet" "devbuild" {
@@ -24,6 +24,6 @@ resource "digitalocean_droplet" "devbuild" {
   region   = "fra1"
   size     = "s-1vcpu-2gb-amd"
   ssh_keys = [
-    data.digitalocean_ssh_key.terraform.id
+    data.digitalocean_ssh_key.jenkins.id
   ]
 }
