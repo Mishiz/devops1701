@@ -1,0 +1,24 @@
+- name: install devsrv
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Ensure default-jdk is installed
+    apt:
+      name: default-jdk
+      state: present
+  - name: Ensure git is installed
+    apt:
+      name: git
+      state: present
+  - name: Ensure maven is installed
+    apt:
+      name: maven
+      state: present
+  - name: Clone app from git
+    git:
+      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      dest: /tmp/boxfuse
+  - name: Make WAR file
+    shell:
+      cmd: mvn -f /tmp/boxfuse/pom.xml package
