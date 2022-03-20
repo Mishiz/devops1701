@@ -33,6 +33,7 @@ resource "digitalocean_droplet" "devbuild" {
       "apt install -y python3",
     ]
     connection {
+      host        = self.ipv4_address
       user        = "root"
       type        = "ssh"
       private_key = file(var.pvt_key)
