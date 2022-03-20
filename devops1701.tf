@@ -27,3 +27,19 @@ resource "digitalocean_droplet" "devbuild" {
     data.digitalocean_ssh_key.jenkins.id
   ]
 }
+
+
+  provisioner "remote-exec" {
+    inline = [
+      "apt update",
+      "apt update",
+      "apt install -y python3",
+    ]
+    connection {
+    user        = "root"
+    type        = "ssh"
+    private_key = file(var.pvt_key)
+    timeout     = "2m"
+  }
+  }
+
