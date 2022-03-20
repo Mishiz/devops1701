@@ -26,3 +26,4 @@ resource "digitalocean_droplet" "devbuild" {
   ssh_keys = [
     data.digitalocean_ssh_key.terraform.id
   ]
+}
