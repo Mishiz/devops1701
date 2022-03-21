@@ -18,7 +18,9 @@ pipeline {
       steps{
         sh 'terraform apply --auto-approve \
             -var "do_token=${DO_PAT}" \
-            -var "pvt_key=$HOME/.ssh/id_rsa" '
+            -var "pvt_key=$HOME/.ssh/id_rsa" \
+            -var "access_id=$DO_SPA" \
+            -var "secret_key=$DO_SPAS"'
       }
     }
   }

@@ -16,10 +16,14 @@
     apt:
       name: maven
       state: present
+  - name: Ensure s3cmd is present
+    apt:
+      name: s3cmd
+      state: present
   - name: Clone app from git
     git:
       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
       dest: /tmp/boxfuse
   - name: Make WAR file
     shell:
-      cmd: mvn -f /tmp/boxfuse/pom.xml package
+      cmd: mvn -f /tmp/boxfuse/pom.xml package &&  s3cmd put /tmp/boxfuse/target/hello-1.0.war s3://dev1408s/ROOT.war"
