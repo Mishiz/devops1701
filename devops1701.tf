@@ -41,7 +41,7 @@ resource "digitalocean_droplet" "devbuild1" {
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -u root -i '${self.ipv4_address_private},' --private-key ${var.pvt_key} -T 300 devsrv.yml"
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u root -i '${self.ipv4_address_private},' --private-key ${var.pvt_key} -T 300 devsrv.yml"
   }
 
 }
