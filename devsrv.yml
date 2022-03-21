@@ -1,7 +1,6 @@
 ---
 
-- name: install devsrv
-  hosts: devsrvs
+- hosts: all
   become: yes
 
   tasks:

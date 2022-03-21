@@ -41,7 +41,7 @@ resource "digitalocean_droplet" "devbuild" {
   }
 
   provisioner "local-exec" {
-    command = "echo '[devsrvs]\n${self.ipv4_address}' >> hosts && ansible-playbook -u root -i hosts --private-key ${var.pvt_key} -T 300 devsrv.yml"
+    command = "ansible-playbook -u root -i '${self.ipv4_address_private},' --private-key ${var.pvt_key} -T 300 devsrv.yml"
   }
 
 }
