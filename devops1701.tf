@@ -29,7 +29,7 @@ resource "digitalocean_droplet" "devbuild" {
   provisioner "remote-exec" {
     inline = [
       "apt update",
-      "apt update"
+      "apt install -y python"
     ]
     connection {
       host        = self.ipv4_address
