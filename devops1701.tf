@@ -18,9 +18,9 @@ data "digitalocean_ssh_key" "jenkins" {
   name = "jenkins"
 }
 
-resource "digitalocean_droplet" "devbuild" {
+resource "digitalocean_droplet" "devbuild1" {
   image    = "ubuntu-20-04-x64"
-  name     = "devbuild"
+  name     = "devbuild1"
   region   = "fra1"
   size     = "s-1vcpu-2gb-amd"
   ssh_keys = [
