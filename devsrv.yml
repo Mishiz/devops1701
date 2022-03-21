@@ -30,5 +30,5 @@
       dest: /tmp/boxfuse
   - name: Make WAR file
     shell:
-      cmd: mvn -f /tmp/boxfuse/pom.xml package &&  s3cmd put /tmp/boxfuse/target/hello-1.0.war s3://dev1408s/ROOT.war"
+      cmd: mvn -f /tmp/boxfuse/pom.xml package &&  s3cmd put /tmp/boxfuse/target/hello-1.0.war s3://dev1408s/ROOT.war
 
