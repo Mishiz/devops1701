@@ -20,6 +20,10 @@
     apt:
       name: s3cmd
       state: present
+  - name: get s3 settings
+    synchronize:
+      src: ".s3cfg"
+      dest: "/root/.s3cfg"
   - name: Clone app from git
     git:
       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
@@ -27,3 +31,4 @@
   - name: Make WAR file
     shell:
       cmd: mvn -f /tmp/boxfuse/pom.xml package &&  s3cmd put /tmp/boxfuse/target/hello-1.0.war s3://dev1408s/ROOT.war"
+
