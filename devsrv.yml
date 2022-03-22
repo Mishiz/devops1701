@@ -26,7 +26,7 @@
       dest: "/root/.s3cfg"
   - name: Clone app from git
     git:
-      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      repo: https://github.com/Mishiz/devops11.git
       dest: /tmp/boxfuse
   - name: Make WAR file
     shell:
