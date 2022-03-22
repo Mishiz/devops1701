@@ -22,9 +22,9 @@ data "digitalocean_ssh_key" "jenkins" {
   name = "jenkins"
 }
 
-resource "digitalocean_droplet" "devbuild" {
+resource "digitalocean_droplet" "build1701" {
   image    = "ubuntu-20-04-x64"
-  name     = "devbuild"
+  name     = "build1701"
   region   = "fra1"
   size     = "s-1vcpu-2gb-amd"
   ssh_keys = [
@@ -74,5 +74,7 @@ resource "digitalocean_droplet" "stage1701" {
   provisioner "local-exec" {
     command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u root --private-key ${var.pvt_key} -i '${self.ipv4_address_private},' -T 300 stage.yml"
   }
-
+   depends_on = [
+     digitalocean_droplet.build1701
+   ]
 }
