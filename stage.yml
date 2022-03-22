@@ -4,14 +4,6 @@
   become: yes
 
   tasks:
-  - name: Ensure docker is installed
-    apt:
-      name: docker.io
-      state: present
-
-  - pip:
-      name: docker-py
-
   - name: Ensure s3cmd is present
     apt:
       name: s3cmd
@@ -20,6 +12,13 @@
     synchronize:
       src: ".s3cfg"
       dest: "/root/.s3cfg"
+
+  - pip:
+      name: docker-py
+  - pip:
+      name: docker
+
+
   - name: Get Dockerfile
     git:
       repo: https://github.com/Mishiz/devops1701.git
