@@ -22,4 +22,13 @@
       dest: /tmp/stage1701
   - name: Get WAR file
     shell:
-      cmd: s3cmd get s3://dev1408s/ROOT.war /tmp/stage1701/
+      cmd: s3cmd get s3://dev1408s/ROOT.war /tmp/stage1701/docker
+
+  - name: Build Docker image
+    docker_image:
+      name: stage1701
+      build:
+        path: /tmp/stage1701/docker
+        args:
+          listen_port: 8080
+      source: build
