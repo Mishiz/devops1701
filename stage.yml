@@ -18,7 +18,8 @@
       state: present
   - name: Ensure Pythin-SDK is present
     pip:
-      name: docker
+      name:
+        - docker
 
 
   - name: Get Dockerfile
