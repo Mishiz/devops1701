@@ -8,6 +8,10 @@
     apt:
       name: docker.io
       state: present
+
+  - pip:
+      name: docker-py
+
   - name: Ensure s3cmd is present
     apt:
       name: s3cmd
