@@ -12,7 +12,10 @@
     synchronize:
       src: ".s3cfg"
       dest: "/root/.s3cfg"
-
+  - name: Ensure pip is present
+    apt:
+      name: pip
+      state: present
   - pip:
       name: docker-py
   - pip:
