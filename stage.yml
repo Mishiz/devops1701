@@ -1,0 +1,21 @@
+---
+
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: Ensure docker is installed
+    apt:
+      name: docker.io
+      state: present
+  - name: Ensure s3cmd is present
+    apt:
+      name: s3cmd
+      state: present
+  - name: get s3 settings
+    synchronize:
+      src: ".s3cfg"
+      dest: "/root/.s3cfg"
+  - name: Make WAR file
+    shell:
+      cmd: s3cmd get s3://dev1408s/ROOT.war
