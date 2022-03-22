@@ -14,12 +14,11 @@
       dest: "/root/.s3cfg"
   - name: Ensure pip is present
     apt:
-      name: pip
+      name: python3-pip
       state: present
-  - pip:
-      name: docker-py
-  - pip:
-      name: docker
+  - name: Ensure Pythin-SDK is present
+      pip:
+        name: docker
 
 
   - name: Get Dockerfile
