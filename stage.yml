@@ -16,6 +16,10 @@
     synchronize:
       src: ".s3cfg"
       dest: "/root/.s3cfg"
-  - name: Make WAR file
+  - name: Get Dockerfile
+    git:
+      repo: https://github.com/Mishiz/devops1701.git
+      dest: /tmp/stage1701
+  - name: Get WAR file
     shell:
-      cmd: s3cmd get s3://dev1408s/ROOT.war
+      cmd: s3cmd get s3://dev1408s/ROOT.war /tmp/stage1701/
