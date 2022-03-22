@@ -23,7 +23,7 @@
     pip:
       name:
         - docker
-        - docker-py
+
 
 
 
