@@ -43,4 +43,5 @@
         path: /tmp/stage1701/docker
         args:
           listen_port: 8080
+      pull: yes
       source: build
