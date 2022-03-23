@@ -44,3 +44,7 @@
         args:
           listen_port: 8080
       source: build
+  - name: Docker Image Up
+    docker_container:
+      name: stage1701deploy
+      image: stage1701
