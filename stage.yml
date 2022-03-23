@@ -48,3 +48,5 @@
     docker_container:
       name: stage1701deploy
       image: stage1701
+      published_ports:
+        - "8080:8080"
