@@ -4,22 +4,17 @@
   become: yes
 
   tasks:
-  - name: Ensure default-jdk is installed
+
+  - name: Ensure Apps is installed
     apt:
-      name: default-jdk
+      name: "{{ item }}"
       state: present
-  - name: Ensure git is installed
-    apt:
-      name: git
-      state: present
-  - name: Ensure maven is installed
-    apt:
-      name: maven
-      state: present
-  - name: Ensure s3cmd is present
-    apt:
-      name: s3cmd
-      state: present
+    with_items:
+    - default-jdk
+    - git
+    - maven
+    - s3cmd
+
   - name: get s3 settings
     synchronize:
       src: ".s3cfg"
