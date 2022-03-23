@@ -15,6 +15,10 @@
       src: ".s3cfg"
       dest: "/root/.s3cfg"
 
+  - name: Ensure Docker.io is present
+      apt:
+        name: docker.io
+        state: present
   - name: Ensure pip is present
     apt:
       name: python3-pip
@@ -23,9 +27,6 @@
     pip:
       name:
         - docker
-
-
-
 
   - name: Get Dockerfile
     git:
