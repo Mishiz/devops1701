@@ -16,7 +16,7 @@
       dest: "/root/.s3cfg"
 
   - name: Ensure Docker.io is present
-      apt:
+    apt:
         name: docker.io
         state: present
   - name: Ensure pip is present
