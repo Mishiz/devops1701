@@ -35,7 +35,10 @@
   - name: Get WAR file
     shell:
       cmd: s3cmd get s3://dev1408s/ROOT.war /tmp/stage1701/docker
-
+  - name: pull an image
+    docker_image:
+      name: ubuntu:18.04
+      source: pull
   - name: Build Docker image
     docker_image:
       name: stage1701
@@ -43,5 +46,4 @@
         path: /tmp/stage1701/docker
         args:
           listen_port: 8080
-      pull: yes
       source: build
